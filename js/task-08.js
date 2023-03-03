@@ -1,6 +1,6 @@
-const a  = document.querySelector('form.login-form');
+const userForm  = document.querySelector('form.login-form');
 
- a.addEventListener('submit', hundleSubmit);
+ userForm.addEventListener('submit', hundleSubmit);
 
  function hundleSubmit(evt){
     evt.preventDefault();
@@ -8,9 +8,13 @@ const a  = document.querySelector('form.login-form');
         elements: { email, password }
     } = evt.currentTarget;
 
-    if (email.value === "" || password.value === ""){
+    if (email.value.trim() === "" || password.value.trim() === ""){
         return alert('Пожалуста, заполните поле ввода');
     }
-    console.log(`Email: ${email.value}, Passord: ${password.value}`);
+    const user = {
+        Email: email.value, 
+        Passord: password.value
+    }
+    console.log(user);
     evt.currentTarget.reset();
  }

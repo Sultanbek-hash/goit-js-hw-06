@@ -1,8 +1,7 @@
-const a = document.querySelector('input#validation-input');
+const validInput = document.querySelector('input#validation-input');
 
 // a.addEventListener('blur', (e) =>{
-// console.log(e.currentTarget.value.length);
-// if(e.target.getAttribute(['data-length']) >= e.currentTarget.value.length){
+// if(e.target.getAttribute(['data-length']) > e.currentTarget.value.length){
 //     e.target.classList.remove('valid');
 //     e.target.classList.add('invalid');
 // }else{
@@ -11,9 +10,9 @@ const a = document.querySelector('input#validation-input');
 // }
 // });
 
-a.addEventListener('blur', function(){
+validInput.addEventListener('blur', function(){
     console.log(this.value.length);
-    if(this.value.length <= this.getAttribute('data-length')){
+    if(this.value.length < this.getAttribute('data-length')){
         this.classList.remove('valid');
         this.classList.add('invalid');
     }else{

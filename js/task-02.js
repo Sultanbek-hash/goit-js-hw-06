@@ -8,9 +8,11 @@ const ingredients = [
 ];
 
 const ulList = document.querySelector('#ingredients');
-for (let i=0; i <= ingredients.length; i++){
-  let li = document.createElement('li');
-  li.classList.add('item');
-  li.innerHTML = ingredients[i];
-  ulList.append(li);
-}
+
+const elements = ingredients.map(options =>{
+  const liElm = document.createElement('li');
+  liElm.classList.add('item');
+  liElm.textContent = options;
+  return liElm;
+});
+ulList.append(...elements);
